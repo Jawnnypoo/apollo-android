@@ -10,22 +10,3 @@ query GithubRepositoryDetail(
     }
   }
 }
-
-fragment RepositoryDetail on Repository {
-  id
-  name
-  description
-  issues {
-    totalCount
-  }
-  pullRequests(states: $pullRequestStates) {
-    totalCount
-  }
-  stargazers {
-    totalCount
-  }
-  forkCount
-  releases {
-    totalCount
-  }
-}

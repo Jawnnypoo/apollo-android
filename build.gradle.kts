@@ -133,7 +133,7 @@ fun Project.configurePublishing() {
     // create the Android javadoc if needed
     javadocTask = tasks.create("javadoc", Javadoc::class.java) {
       source = android.sourceSets["main"].java.sourceFiles
-      classpath += project.files(android.getBootClasspath().joinToString(File.pathSeparator))
+      classpath += project.files(android.bootClasspath.joinToString(File.pathSeparator))
     }
   }
 

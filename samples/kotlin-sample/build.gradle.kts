@@ -46,6 +46,7 @@ dependencies {
     add("implementation", groovy.util.Eval.x(project, "x.dep.kotlin.stdLib"))
     add("implementation", groovy.util.Eval.x(project, "x.dep.rx.android"))
     add("implementation", groovy.util.Eval.x(project, "x.dep.rx.java"))
+    add("implementation", project(":api"))
 }
 
 configure<com.apollographql.apollo.gradle.api.ApolloExtension> {
