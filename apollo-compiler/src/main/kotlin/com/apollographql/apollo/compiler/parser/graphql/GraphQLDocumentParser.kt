@@ -20,9 +20,10 @@ class GraphQLDocumentParser(val schema: IntrospectionSchema, private val package
   fun parse(graphQLFiles: Collection<File>): CodeGenerationIR {
     val (operations, fragments, usedTypes) = graphQLFiles.fold(DocumentParseResult()) { acc, graphQLFile ->
       val result = graphQLFile.parse()
+      FragmentsCache.fragments.addAll(result.fragments)
       DocumentParseResult(
           operations = acc.operations + result.operations,
-          fragments = acc.fragments + result.fragments,
+          fragments = FragmentsCache.fragments,
           usedTypes = acc.usedTypes.union(result.usedTypes)
       )
     }
