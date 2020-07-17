@@ -23,7 +23,7 @@ class GraphQLDocumentParser(val schema: IntrospectionSchema, private val package
       FragmentsCache.fragments.addAll(result.fragments)
       DocumentParseResult(
           operations = acc.operations + result.operations,
-          fragments = FragmentsCache.fragments,
+          fragments = FragmentsCache.fragments.toList(),
           usedTypes = acc.usedTypes.union(result.usedTypes)
       )
     }
